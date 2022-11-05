@@ -1,0 +1,28 @@
+/*
+ * global.h
+ *
+ *  Created on: Nov 4, 2022
+ *      Author: HP
+ */
+
+#ifndef INC_GLOBAL_H_
+#define INC_GLOBAL_H_
+
+#include "software_timer.h"
+#include "button.h"
+#include "main.h"
+
+#define TIMER_FOR_KEYPRESS 200
+#define INIT 			0
+#define NormalPress 	1
+#define LongPress		2
+#define Timerout10s		3
+
+extern int counter;
+
+extern int status;
+
+extern int flag_inc;
+extern int flag_dec;
+
+#endif /* INC_GLOBAL_H_ */

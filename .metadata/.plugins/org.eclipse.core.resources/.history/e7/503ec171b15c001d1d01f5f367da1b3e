@@ -1,0 +1,21 @@
+/*
+ * fsm_simple_button.c
+ *
+ *  Created on: Nov 5, 2022
+ *      Author: HP
+ */
+
+#include "fsm_simple_button.h"
+
+void fsm_simple_button_run(){
+	display7SEG(counter);
+	if(isButton1Pressed() == 1){
+		status = 0;
+	}
+	if(isButton2Pressed() == 1){
+		status++;
+	}
+	if(isButton3Pressed() == 1){
+		status--;
+	}
+}

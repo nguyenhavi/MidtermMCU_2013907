@@ -1,0 +1,25 @@
+/*
+ * global.c
+ *
+ *  Created on: Nov 4, 2022
+ *      Author: HP
+ */
+
+#include "software_timer.h"
+#include "button.h"
+#include "main.h"
+
+int counter = 8;
+
+int flag_inc = 0;
+int flag_dec = 0;
+
+int status = 0;
+
+int buttonPress = 2;
+
+int timeOut = 0;
+int counterLongPress = 0;
+
+int flag_release2 = 0;
+int flag_release3 = 0;

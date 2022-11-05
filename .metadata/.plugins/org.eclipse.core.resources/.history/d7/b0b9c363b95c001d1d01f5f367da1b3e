@@ -1,0 +1,76 @@
+/*
+ * fsm_simple_button.c
+ *
+ *  Created on: Nov 5, 2022
+ *      Author: HP
+ */
+
+#include "fsm_simple_button.h"
+#include "normal_press.h"
+
+void fsm_simple_button_run(){
+	switch(status){
+		case INIT:
+			display7SEG(counter);
+			status = DoNotThing;
+			setTimer1(100);
+			break;
+		case DoNotThing:
+			display7SEG(counter);
+			if(isButton1Pressed() || isButton2Pressed() || isButton3Pressed()){
+				status = Normal_Press;
+			}
+			if(timeOut >= 10){
+				status = Timerout10s;
+			}
+			if(timer1_flag == 1){
+				timeOut++;
+			}
+		case Normal_Press:
+			NormalPress();
+			if(counterLongPress >= 3){
+				status = Long_Press;
+			}
+			if(timer1_flag == 1){
+				if(flag_release2 == 1){counterLongPress++;}
+				if(flag_release3 == 1){counterLongPress++;}
+			}
+			break;
+		case Long_Press:
+			if(isButton2Release() && buttonPress == 2){
+				status = DoNotThing;
+			}
+			if(isButton3Release() && buttonPress == 3){
+				status = DoNotThing;
+			}
+			if(timer1_flag == 1){
+				if(flag_inc == 1){
+					counter++;
+					if(counter >= 10){
+						counter = 0;
+					}
+				}
+				if(flag_dec == 1){
+					counter--;
+					if(counter <= -1){
+						counter = 9;
+					}
+				}
+			}
+			break;
+		case Timeout10s:
+			if(isButton1Pressed() || isButton2Pressed() || isButton3Pressed()){
+				status = Normal_Press;
+			}
+			if(timer1_flag == 1){
+				counter--;
+				if(counter <= 0){
+					counter = 0;
+				}
+			}
+			break;
+		default:
+			break;
+	}
+
+}

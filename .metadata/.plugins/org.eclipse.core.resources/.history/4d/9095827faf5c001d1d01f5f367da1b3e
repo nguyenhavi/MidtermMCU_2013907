@@ -1,0 +1,10 @@
+/*
+ * fsm_simple_button.c
+ *
+ *  Created on: Nov 5, 2022
+ *      Author: HP
+ */
+
+void fsm_simple_button_run(){
+
+}

@@ -1,0 +1,43 @@
+/*
+ * fsm_simple_button.c
+ *
+ *  Created on: Nov 5, 2022
+ *      Author: HP
+ */
+
+#include "fsm_simple_button.h"
+#include "normal_press.h"
+
+void fsm_simple_button_run(){
+	switch(status){
+		case INIT:
+			display7SEG(number);
+			if(isButton1Pressed() || isButton2Pressed() || isButton3Pressed()){
+				status = NormalPress;
+				setTimer3(300);
+			}
+			setTimer1(1000);
+			break;
+		case NormalPress:
+			NormalPress();
+			if(timer3_flag == 1){
+				status = LongPress;
+			}
+			break;
+		case LongPress:
+			if(timer2_flag == 1){
+				if(flag_inc == 1){
+					counter++;
+				}
+				if(flag_dec == 1){
+					counter--;
+				}
+			}
+			break;
+		case Timeout10s:
+			break;
+		default:
+			break;
+	}
+
+}

@@ -1,0 +1,23 @@
+15:20:16 **** Incremental Build of configuration Debug for project Midterm_MCU ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/fsm_simple_button.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/fsm_simple_button.d" -MT"Core/Src/fsm_simple_button.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/fsm_simple_button.o"
+arm-none-eabi-gcc -o "Midterm_MCU.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Midterm_MCU\Midterm_MCU\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Midterm_MCU.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Midterm_MCU.elf
+ 
+arm-none-eabi-size   Midterm_MCU.elf 
+arm-none-eabi-objdump -h -S  Midterm_MCU.elf  > "Midterm_MCU.list"
+arm-none-eabi-objcopy  -O ihex  Midterm_MCU.elf  "Midterm_MCU.hex"
+   text	   data	    bss	    dec	    hex	filename
+   9612	     80	   1704	  11396	   2c84	Midterm_MCU.elf
+arm-none-eabi-objcopy  -O binary  Midterm_MCU.elf  "Midterm_MCU.bin"
+Finished building: default.size.stdout
+ 
+Finished building: Midterm_MCU.bin
+Finished building: Midterm_MCU.hex
+Finished building: Midterm_MCU.list
+ 
+ 
+ 
+
+15:20:21 Build Finished. 0 errors, 0 warnings. (took 4s.870ms)
+

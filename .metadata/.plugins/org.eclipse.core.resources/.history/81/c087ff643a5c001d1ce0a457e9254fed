@@ -1,0 +1,12 @@
+/*
+ * display7SEG.c
+ *
+ *  Created on: Nov 4, 2022
+ *      Author: HP
+ */
+
+#include "display7SEG.h"
+
+void display7SEG(int number){
+
+}

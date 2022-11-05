@@ -1,0 +1,12 @@
+/*
+ * global.c
+ *
+ *  Created on: Nov 4, 2022
+ *      Author: HP
+ */
+
+#include "software_timer.h"
+#include "button.h"
+#include "main.h"
+
+int status = 0;
