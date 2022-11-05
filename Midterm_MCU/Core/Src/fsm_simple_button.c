@@ -102,6 +102,7 @@ void fsm_simple_button_run(){
 					|| !HAL_GPIO_ReadPin(Button2_GPIO_Port, Button2_Pin)
 					|| !HAL_GPIO_ReadPin(Button3_GPIO_Port, Button3_Pin)){
 				status = Normal_Press;
+				timeOut = 0;
 			}
 			if(timer1_flag == 1){
 			//Count down counter variable
